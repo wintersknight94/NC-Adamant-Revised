@@ -13,7 +13,7 @@ local function tooltip(name, group)
 	minetest.register_tool(tool, {
 			description = "Infused Adamant-Tipped " .. name,
 			inventory_image = "nc_woodwork_tool_" .. name:lower() .. ".png^"
-			.. modname .. "_tip_" .. name:lower() .. ".png^(nc_lux_gravel.png^[opacity:100)",
+			.. modname .. "_tip_" .. name:lower() .. ".png^(nc_lux_gravel.png^[opacity:75)",
 			tool_wears_to = wood,
 			groups = {
 				flammable = 2,
@@ -22,8 +22,8 @@ local function tooltip(name, group)
 				lux_tool = 1
 			},
 			tool_capabilities = nodecore.toolcaps({
-					uses = 0.05,
-					[group] = 7
+					uses = 0.01,
+					[group] = 8
 				}),
 			on_ignite = modname .. ":shard",
 			light_source = 1,
@@ -50,16 +50,15 @@ tooltip("Pick", "cracky")
 local adzedef
 adzedef = {
 	description = "Infused Adamant-Tipped Adze",
-	inventory_image = "nc_woodwork_adze.png^" .. modname .. "_tip_adze.png^(nc_lux_gravel.png^[opacity:100)",
+	inventory_image = "nc_woodwork_adze.png^" .. modname .. "_tip_adze.png^(nc_lux_gravel.png^[opacity:75)",
 	groups = {
-		firestick = 2,
 		flammable = 2,
 		metallic = 1,
 		lux_emit = 1,
 		lux_tool = 1
 	},
 	tool_capabilities = nodecore.toolcaps({
-			uses = 0.05,
+			uses = 0.01,
 			choppy = 6,
 			crumbly = 7,
 			cracky = 5,
@@ -89,6 +88,21 @@ nodecore.register_craft({
 		items = {
 			{name = modname .. ":adze_infused"}
 		},
+	})
+
+-- ================================================================== --
+
+nodecore.register_soaking_abm({
+		label = "adamant infusion",
+		fieldname = "adalux",
+		interval = 10,
+		nodenames = {"group:adamant_crystal"},
+		arealoaded = 14,
+		soakrate = nodecore.lux_soak_rate,
+		soakcheck = function(data, pos)
+			if data.total < 5000 then return end 
+			nodecore.set_loud(pos, {name = modname .. ":block_infused"})
+		end
 	})
 
 -- ================================================================== --

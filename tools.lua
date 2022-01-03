@@ -20,7 +20,7 @@ local function tooltip(name, group)
 				metallic = 1
 			},
 			tool_capabilities = nodecore.toolcaps({
-					uses = 0.05,
+					uses = 0.01,
 					[group] = 7
 				}),
 			on_ignite = modname .. ":shard",
@@ -49,15 +49,15 @@ adzedef = {
 	description = "Adamant-Tipped Adze",
 	inventory_image = "nc_woodwork_adze.png^" .. modname .. "_tip_adze.png",
 	groups = {
-		firestick = 2,
 		flammable = 2
 	},
 	tool_capabilities = nodecore.toolcaps({
-			uses = 0.05,
+			uses = 0.01,
 			choppy = 5,
 			crumbly = 6,
 			cracky = 4,
 		}),
+	on_ignite = modname .. ":shard",
 	sounds = nodecore.sounds("nc_optics_glassy"),
 	tool_wears_to = "nc_woodwork:adze"
 }

@@ -16,7 +16,8 @@ minetest.register_craftitem(modname..":ore", {
 	groups = {
 		cracky = 1,
 		adamanty = 1,
-		metallic = 1
+		metallic = 1,
+		shiny_rock = 1
 		}
 })
 
@@ -28,7 +29,8 @@ minetest.register_craftitem(modname..":shard", {
 	sounds = nodecore.sounds("nc_optics_glassy"),
 	groups = {
 		cracky = 1,
-		metallic = 1
+		metallic = 1,
+		shiny_rock = 1
 		}
 })
 
@@ -46,7 +48,8 @@ minetest.register_craftitem(modname..":shard_infused", {
 		cracky = 1,
 		adamanty = 1,
 		metallic = 1,
-		lux_emit = 1
+		lux_emit = 1,
+		shiny_rock = 1
 		},
 	light_source = 1
 })

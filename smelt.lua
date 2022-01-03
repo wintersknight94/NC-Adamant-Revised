@@ -6,43 +6,6 @@ local modname = minetest.get_current_modname()
 
 -- ================================================================== --
 
-minetest.register_node(modname .. ":cobble", {
-		description = "Shiny Cobble",
-		tiles = {modname .. ".png^nc_terrain_cobble.png"},
-		color = "turquoise",
-		groups = {
-			cracky = 3,
-			lux_absorb = 12,
-			metallic = 1,
-			adamant_cobble = 1
-		},
-		sounds = nodecore.sounds("nc_terrain_stony"),
-		alternate_loose = {
-			repack_level = 2,
-			groups = {
-				cracky = 0,
-				crumbly = 2,
-				falling_repose = 3,
-				metallic = 1,
-				adamant_cobble = 1
-			},
-			sounds = nodecore.sounds("nc_terrain_chompy")
-		}
-	})
-	
-minetest.register_node(modname .. ":block", {
-		description = "Adamant Crystal",
-		tiles = {modname .. ".png"},
-		groups = {
-			cracky = 4,
-			lux_absorb = 12,
-			metallic = 1
-		},
-		sounds = nodecore.sounds("nc_optics_glassy")
-	})
-
--- ================================================================== --
-
 nodecore.register_craft({
 		label = "heat adamant cobble",
 		action = "cook",
@@ -98,8 +61,21 @@ nodecore.register_craft({
 		items = {
 			{name = modname .. ":shard", count = 4, scatter = 5}
 		},
-		toolgroups = {cracky = 4},
+		toolgroups = {cracky = 4, thumpy = 5},
 		itemscatter = 5
+	})
+nodecore.register_craft({
+		label = "crack infused crystal to shards",
+		action = "pummel",
+		indexkeys = {modname .. ":block_infused"},
+		nodes = {
+			{match = modname .. ":block_infused", replace = "air"}
+		},
+		items = {
+			{name = modname .. ":shard_infused", count = 4, scatter = 9}
+		},
+		toolgroups = {cracky = 3, thumpy = 4},
+		itemscatter = 9
 	})
 
 -- ================================================================== --	
