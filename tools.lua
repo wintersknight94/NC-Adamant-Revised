@@ -52,7 +52,7 @@ adzedef = {
 		flammable = 2
 	},
 	tool_capabilities = nodecore.toolcaps({
-			uses = 0.01,
+			uses = 0.025,
 			choppy = 5,
 			crumbly = 6,
 			cracky = 4,
