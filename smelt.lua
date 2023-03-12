@@ -1,28 +1,29 @@
 -- LUALOCALS < ---------------------------------------------------------
-local ItemStack, error, minetest, nodecore, pairs, type
-    = ItemStack, error, minetest, nodecore, pairs, type
+local ItemStack, minetest, nodecore
+    = ItemStack, minetest, nodecore
 -- LUALOCALS > ---------------------------------------------------------
 local modname = minetest.get_current_modname()
-
 -- ================================================================== --
-
+local crystal = "wc_crystals:adamant"
 nodecore.register_craft({
 		label = "heat adamant cobble",
 		action = "cook",
 		touchgroups = {lava = 3},
+		neargroups = {coolant = 0},
 		duration = 30,
 		cookfx = true,
 		indexkeys = {"group:adamant_cobble"},
 		nodes = {
 			{
 				match = {groups = {adamant_cobble = true}},
-				replace = modname .. ":block"
+				replace = crystal
 			}
 		}
 	})
-	
+------------------------------------------------------------------------
+nodecore.register_cook_abm({nodenames = {"group:adamant_cobble"}, neighbors = {"group:lava"}})
+nodecore.register_cook_abm({nodenames = {"wc_crystals:adamant"}})
 -- ================================================================== --	
-	
 nodecore.register_craft({
 		label = "pack shiny rocks to cobble",
 		action = "pummel",
@@ -33,51 +34,21 @@ nodecore.register_craft({
 				replace = modname .. ":cobble_loose"
 			}
 		},
-		toolgroups = {thumpy = 3}
+		toolgroups = {thumpy = 4}
 	})
+------------------------------------------------------------------------
 nodecore.register_craft({
 		label = "break shiny cobble to rocks",
 		action = "pummel",
-		indexkeys = {modname .. ":cobble_loose"},
+		indexkeys = {"group:adamant_cobble"},
 		nodes = {
-			{match = modname .. ":cobble_loose", replace = "air"}
+			{match = {groups = {adamant_cobble = true}}, replace = "air"}
 		},
 		items = {
 			{name = modname .. ":ore", count = 8, scatter = 5}
 		},
-		toolgroups = {cracky = 2},
+		toolgroups = {cracky = 3},
 		itemscatter = 5
 	})
-	
 -- ================================================================== --	
-
-nodecore.register_craft({
-		label = "crack crystal to shards",
-		action = "pummel",
-		indexkeys = {modname .. ":block"},
-		nodes = {
-			{match = modname .. ":block", replace = "air"}
-		},
-		items = {
-			{name = modname .. ":shard", count = 4, scatter = 5}
-		},
-		toolgroups = {cracky = 4, thumpy = 5},
-		itemscatter = 5
-	})
-nodecore.register_craft({
-		label = "crack infused crystal to shards",
-		action = "pummel",
-		indexkeys = {modname .. ":block_infused"},
-		nodes = {
-			{match = modname .. ":block_infused", replace = "air"}
-		},
-		items = {
-			{name = modname .. ":shard_infused", count = 4, scatter = 9}
-		},
-		toolgroups = {cracky = 3, thumpy = 4},
-		itemscatter = 9
-	})
-
--- ================================================================== --	
-
 

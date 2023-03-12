@@ -1,5 +1,5 @@
 # NodeCore Adamant: Revised
-A mod for NodeCore that adds Adamant, a new metal.
+A mod for NodeCore that adds Adamant, a new mineral.
 --------------------------------------------------
 -----------------NodeCore Adamant-----------------
 ----------------A Mod For NodeCore----------------
@@ -8,7 +8,7 @@ A mod for NodeCore that adds Adamant, a new metal.
 
 -----!ADAMANT!-----
 
-The Mythical Metal of Legend!
+The Mythical Mineral of Legend!
 Difficult to aquire, tedious to work, and worth every torch, broken bone and lost mattock it took to get it.
 
 A Must-Have for Anyone Who Wishes to Live Deep Within the Earth!
