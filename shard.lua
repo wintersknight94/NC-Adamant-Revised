@@ -22,7 +22,7 @@ minetest.register_craftitem(modname..":ore", {
 	}
 })
 -- ================================================================== --
-minetest.override_item("nc_lode:ore", {drop = {items={{items={modname..":ore"},rarity=100}}}})
-minetest.override_item("nc_lux:stone", {drop = {items={{items={modname..":ore"},rarity=100}}}})
+--minetest.override_item("nc_lode:ore", {drop = {items={{items={modname..":ore"},rarity=100}}}})
+--minetest.override_item("nc_lux:stone", {drop = {items={{items={modname..":ore"},rarity=100}}}})
 -- ================================================================== --
 

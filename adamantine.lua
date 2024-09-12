@@ -104,7 +104,19 @@ local schematic_AdamantineStalactite = {
 	}
 }
 
-
+minetest.register_decoration({
+    name = "Adamant stalactite",
+    deco_type = "schematic",
+    place_on = "group:stone",
+    sidelen = 144,
+    fill_ratio = 0.00001,
+--    biomes = {"deep"},
+    y_max = -800,
+    y_min = -31000,
+    schematic = schematic_AdamantineStalactite,
+    flags = "place_center_x,place_center_z,force_placement,all_ceilings",
+    place_offset_y=-3
+})
 
 -- A stalagmite is an upsidedown stalactite, so
 -- use the GreaterStalactite to create a ToweringStalagmite schematic
