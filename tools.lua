@@ -54,9 +54,9 @@ adzedef = {
 	},
 	tool_capabilities = nodecore.toolcaps({
 			uses = 0.5,
-			choppy = 5,
+			choppy = 6,
 			crumbly = 6,
-			cracky = 4,
+			cracky = 2,
 		}),
 	on_ignite = modname .. ":ore",
 	sounds = nodecore.sounds("nc_optics_glassy"),

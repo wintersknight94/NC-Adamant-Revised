@@ -108,7 +108,7 @@ minetest.register_decoration({
     name = "Adamant stalactite",
     deco_type = "schematic",
     place_on = "group:stone",
-    sidelen = 144,
+--	sidelen = 144,
     fill_ratio = 0.00001,
 --    biomes = {"deep"},
     y_max = -800,

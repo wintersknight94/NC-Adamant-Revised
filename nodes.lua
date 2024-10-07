@@ -14,7 +14,7 @@ minetest.register_node(modname .. ":stone", {
 --	use_texture_alpha = "blend",
 --	paramtype = "light",
 	groups = {
-		cracky = 5,
+		cracky = 6,
 		lux_absorb = 24,
 		adamant = 1,
 		adamant_stone = 1
